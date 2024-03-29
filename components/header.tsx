@@ -1,5 +1,6 @@
 import React from 'react';
 import { BellIcon, SearchIcon } from '@heroicons/react/solid';
+import Link from 'next/link';
 const Header = () => {
     return (
         <header className='flex items-center justify-between'>
@@ -21,7 +22,14 @@ const Header = () => {
             <div className='flex items-center space-x-2'>
                 <SearchIcon className=' md:inline w-5 h-5' />
                 <span className='text-sm'>Kids</span>
-                <BellIcon  className=' md:inline w-5 h-5'/>
+                <BellIcon className=' md:inline w-5 h-5' />
+                <Link href="/account">
+                    <img
+                        src="https://rb.gy/g1pwyx"
+                        alt=""
+                        className="cursor-pointer rounded"
+                    />
+                </Link>
             </div>
 
         </header>
