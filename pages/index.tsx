@@ -1,3 +1,4 @@
+import List from '@/components/list'
 import Banner from '@/components/banner'
 import Header from '@/components/header'
 import { Movie } from '@/typings'
@@ -11,7 +12,7 @@ interface Props {
   netflixOriginals: Movie[],
   trendingNow: Movie[],
   topRated: Movie[],
-  actionMovies?: Movie[],
+  actionMovies: Movie[],
   comedyMovies: Movie[],
   horrorMovies: Movie[],
   romanceMovies: Movie[],
@@ -41,7 +42,17 @@ const Home = ({
         {/* Banner  */}
         <Banner netflixOriginals={netflixOriginals} />
         {/* Rows */}
-
+        <section className="md:space-y-24">
+          <List title="Trending Now" movies={trendingNow} />
+          <List title="Top Rated" movies={topRated} />
+          <List title="Action Thrillers" movies={actionMovies} />
+          {/* My List Component */}
+          {/* {list.length > 0 && <List title="My List" movies={list} />} */}
+          <List title="Comedies" movies={comedyMovies} />
+          <List title="Scary Movies" movies={horrorMovies} />
+          <List title="Romance Movies" movies={romanceMovies} />
+          <List title="Documentaries" movies={documentaries} />
+        </section>
       </main>
     </div>
   )
