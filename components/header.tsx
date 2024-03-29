@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BellIcon, SearchIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 const Header = () => {
+    const [isScrolled, setIsScrolled] = useState(false)
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 0) {
+          setIsScrolled(true)
+        } else {
+          setIsScrolled(false)
+        }
+      }
+  
+      window.addEventListener('scroll', handleScroll)
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }, [])
     return (
-        <header className='flex items-center justify-between'>
+        <header className={`${isScrolled && 'bg-[#141414]'}`}>
             <div className='flex space-x-3'>
                 <img
                     src="https://rb.gy/ulxxee"
