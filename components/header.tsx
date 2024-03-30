@@ -21,14 +21,14 @@ const Header = () => {
     }, [])
     return (
         <header className={`${isScrolled && 'bg-[#141414]'}`}>
-            <div className='flex space-x-3'>
+            <div className='flex space-x-5'>
                 <img
                     src="https://rb.gy/ulxxee"
                     width={100}
                     height={100}
                     className="cursor-pointer object-contain"
                 />
-                <ul className='flex  space-x-2 md:space-x-4 md:flex'>
+                <ul className=' hidden space-x-2 md:space-x-4 md:flex'>
                     <li className='headerLink'>Home</li>
                     <li className='headerLink'>Tv shows</li>
                     <li className='headerLink'>Movies</li>
@@ -36,15 +36,15 @@ const Header = () => {
                     <li className='headerLink'>My list</li>
                 </ul>
             </div>
-            <div className='flex items-center space-x-2'>
-                <SearchIcon className=' md:inline w-5 h-5' />
-                <span className='text-sm'>Kids</span>
-                <BellIcon className=' md:inline w-5 h-5' />
+            <div className='flex items-center space-x-3'>
+                <SearchIcon className='hidden md:inline w-5 h-5 cursor-pointer' />
+                <span className='text-sm cursor-pointer'>Kids</span>
+                <BellIcon className=' md:inline w-5 h-5 cursor-pointer' />
                 <Link href="/account">
                     <img
                         src="https://rb.gy/g1pwyx"
                         alt=""
-                        className="cursor-pointer rounded"
+                        className="cursor-pointer rounded w-6 h-6"
                     />
                 </Link>
             </div>

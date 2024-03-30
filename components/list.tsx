@@ -2,8 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 
 import { useRef, useState } from 'react'
 import { Movie } from '../typings'
-import Thumbnail from './thumbnail'
-
+import Thumbnail from './Thumbnail'
 
 interface Props {
     title: string
@@ -21,12 +20,7 @@ function List({ title, movies }: Props) {
             let scrollTo = direction == 'left' ? scrollLeft - clientWidth :
                 scrollLeft + clientWidth;
             rowRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' })
-          
-
-
-            
-
-        }
+            }
     }
 
     return (
@@ -45,7 +39,7 @@ function List({ title, movies }: Props) {
                     ref={rowRef}
                     className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2"
                 >
-                    {movies.map((movie) => (
+                    {movies?.map((movie) => (
                         <Thumbnail key={movie.id} movie={movie} />
                     ))}
                 </div>

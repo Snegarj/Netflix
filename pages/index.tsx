@@ -1,11 +1,15 @@
-import List from '@/components/list'
-import Banner from '@/components/banner'
-import Header from '@/components/header'
+
+import { modalState } from '@/atoms/modalState'
+import Banner from '@/components/Banner'
+import Header from '@/components/Header'
+import List from '@/components/List'
+import BasicModal from '@/components/Modal'
 import { Movie } from '@/typings'
 import requests from '@/utils/request'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import { useEffect } from 'react'
+import { useRecoilValue } from 'recoil'
 
 
 interface Props {
@@ -30,19 +34,23 @@ const Home = ({
   trendingNow
 }: Props) => {
 
-
+  const showModal = useRecoilValue(modalState)
   return (
-    <div className={`relative h-screen bg-gradient-to-b lg:h-[140vh]`}>
+    <div
+    className={` relative h-screen bg-gradient-to-b lg:h-[140vh] ${
+      showModal && '!h-screen overflow-hidden'
+    }`}
+  >
       <Head>
         <title>Netflix | Home</title>
       </Head>
       {/* header  */}
       <Header />
-      <main>
+      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 ">
         {/* Banner  */}
         <Banner netflixOriginals={netflixOriginals} />
         {/* Rows */}
-        <section className="md:space-y-24">
+        <section className="md:space-y-20 ">
           <List title="Trending Now" movies={trendingNow} />
           <List title="Top Rated" movies={topRated} />
           <List title="Action Thrillers" movies={actionMovies} />
@@ -53,6 +61,8 @@ const Home = ({
           <List title="Romance Movies" movies={romanceMovies} />
           <List title="Documentaries" movies={documentaries} />
         </section>
+        {/* Modal  */}
+        <BasicModal/>
       </main>
     </div>
   )

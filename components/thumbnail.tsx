@@ -1,28 +1,38 @@
+import { modalState, movieState } from '@/atoms/modalState';
 import { baseUrl, imageUrl } from '@/constants/movie';
 import { Movie } from '@/typings';
 import Image from 'next/image';
 import React, { Key } from 'react';
+import { useRecoilState } from 'recoil';
 
-interface Props{
-    key:string | Key,
-    movie:Movie
+interface Props {
+  key: string | Key,
+  movie: Movie
 }
 
-const Thumbnail = ({key,movie}:Props) => {
-    return (
-        <div className='  relative h-28 min-w-[150px] md:min-w-[250px] space-x-3 '>
-         
-             <Image
-
+const Thumbnail = ({ key, movie }: Props) => {
+  const [currentMovie,setCurrentMovie]=useRecoilState<Movie | null>(movieState)
+  const [open, setOpen] =useRecoilState(modalState);
+  return (
+    <div
+      className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
+      onClick={() => {
+        console.log("hello");
+        
+        setCurrentMovie(movie)
+        setOpen(true)
+      }}
+    >
+      <Image
+      alt='Movie'
         src={`https://image.tmdb.org/t/p/w500${
           movie.backdrop_path || movie.poster_path
         }`}
         className="rounded-sm object-cover md:rounded"
         layout="fill"
-        alt='Movie'
       />
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Thumbnail;
