@@ -1,6 +1,7 @@
 
-import { modalState } from '@/atoms/modalState'
+import { allMovies, modalState } from '@/atoms/modalState'
 import Banner from '@/components/Banner'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import List from '@/components/List'
 import BasicModal from '@/components/Modal'
@@ -35,6 +36,7 @@ const Home = ({
 }: Props) => {
 
   const showModal = useRecoilValue(modalState)
+  const allMovie=useRecoilValue(allMovies)
   return (
     <div
     className={` relative h-screen bg-gradient-to-b lg:h-[140vh] ${
@@ -46,11 +48,15 @@ const Home = ({
       </Head>
       {/* header  */}
       <Header />
-      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 ">
+      <main className="relative pl-4 pb-20 lg:space-y-24 lg:pl-16 ">
         {/* Banner  */}
         <Banner netflixOriginals={netflixOriginals} />
         {/* Rows */}
+    
+        
         <section className="md:space-y-20 ">
+         
+       {allMovie && allMovie?.length > 0 &&   <List title='Searched Movies' movies={allMovie}/>}
           <List title="Trending Now" movies={trendingNow} />
           <List title="Top Rated" movies={topRated} />
           <List title="Action Thrillers" movies={actionMovies} />
@@ -63,7 +69,9 @@ const Home = ({
         </section>
         {/* Modal  */}
         <BasicModal/>
+      
       </main>
+      <Footer/>
     </div>
   )
 

@@ -24,7 +24,7 @@ const Banner = ({ netflixOriginals }: Props) => {
     },[])
     // image.tmdb.org
     return (
-        <div className=" flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 gradient-to-b">
+        <div className=" flex flex-col space-y-2 py-16 md:space-y-4 lg:justify-end lg:pb-12 gradient-to-b">
       <div className="absolute top-0 left-0 -z-10 h-[95vh] w-full">
         <Image
         alt='Movie'
@@ -34,8 +34,8 @@ const Banner = ({ netflixOriginals }: Props) => {
         />
       </div>
 
-    <div className='py-4  '>
-    <h1 className="text-2xl font-bold md:text-4xl lg:text-6xl">
+    <div className='py-2  '>
+    <h1 className="py-4 text-2xl font-bold md:text-4xl lg:text-6xl">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
       <p className="max-w-xs  text-xs text-shadow-md md:max-w-lg md:text-lg lg:max-w-2xl ">
@@ -43,7 +43,12 @@ const Banner = ({ netflixOriginals }: Props) => {
       </p>
 
       <div className="flex space-x-3  py-6">
-        <button className="bannerButton bg-white text-black">
+        <button className="bannerButton bg-white text-black" 
+           onClick={() => {
+            setOpen(true);
+            setCurrentMovie(movie)
+          }}
+        >
           <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" /> Play
         </button>
         <button

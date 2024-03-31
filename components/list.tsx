@@ -29,11 +29,13 @@ function List({ title, movies }: Props) {
                 {title}
             </h2>
             <div className="group relative md:-ml-2">
-                <ChevronLeftIcon
-                    className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${!isMoved && 'hidden'
-                        }`}
+               <div className={`flex justify-center items-center cursor-pointer opacity-0  transition hover:scale-125 group-hover:opacity-100 absolute top-0 bottom-0 left-2 z-40 m-auto h-8 w-8 bg-black  rounded-full   ${!isMoved && 'hidden'
+                        }`}>
+               <ChevronLeftIcon
+                    className={`m-auto h-6 w-6   `}
                     onClick={() => handleClick('left')}
                 />
+               </div>
 
                 <div
                     ref={rowRef}
@@ -43,11 +45,13 @@ function List({ title, movies }: Props) {
                         <Thumbnail key={movie.id} movie={movie} />
                     ))}
                 </div>
-
+                <div className={`flex justify-center items-center cursor-pointer opacity-0  transition hover:scale-125 group-hover:opacity-100 absolute top-0 bottom-0 right-2 z-40 m-auto h-8 w-8 bg-black  rounded-full `}>
                 <ChevronRightIcon
-                    className={`absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100`}
+                    className={` m-auto  h-6 w-6  `}
                     onClick={() => handleClick('right')}
                 />
+            </div>
+
             </div>
         </div>
     )
