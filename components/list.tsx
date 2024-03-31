@@ -1,7 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
-import { useRef, useState } from 'react'
-import Thumbnail from './Thumbnail'
-import { Movie } from '@/typings'
+import { useRef, useState } from 'react';
+import { Movie } from '@/typings';
+import Thumbnail from './Thumbnail';
 
 
 interface Props {

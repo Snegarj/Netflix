@@ -1,13 +1,9 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
 import { useRecoilState } from 'recoil';
 import { modalState, movieState } from '@/atoms/modalState';
 import { XIcon } from '@heroicons/react/outline';
-import { FaPlay } from 'react-icons/fa';
 import { Element, Genre, Movie } from '@/typings';
 import ReactPlayer from 'react-player';
 import MuiModal from '@mui/material/Modal'
