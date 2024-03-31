@@ -26,6 +26,7 @@ const Header = () => {
         <img
           src="https://rb.gy/ulxxee"
           width={100}
+          alt='movie'
           height={100}
           className="cursor-pointer object-contain"
         />
@@ -47,7 +48,7 @@ const Header = () => {
         <Link href="/account">
           <img
             src="https://rb.gy/g1pwyx"
-            alt=""
+            alt="icon"
             className="cursor-pointer rounded w-6 h-6"
           />
         </Link>
