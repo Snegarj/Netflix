@@ -21,7 +21,6 @@ export default function BasicModal() {
   const [genres, setGenres] = useState<Genre[]>([])
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-console.log("data",movie);
 
   useEffect(() => {
     if (!movie) return
@@ -34,7 +33,6 @@ console.log("data",movie);
       )
         .then((response) => response.json())
         .catch((err) => console.log(err.message))
-      console.log("dta", data);
 
       if (data?.videos) {
         const index = data.videos.results.findIndex(
