@@ -47,7 +47,7 @@ export default function BasicModal() {
     <MuiModal
       open={open}
       onClose={handleClose}
-      className="fixed bg-[#181818] !top-7 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
+      className="fixed bg-[#181818]  !top-7 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
 
       <Box>
@@ -57,8 +57,7 @@ export default function BasicModal() {
         >
           <XIcon className="h-6 w-6" />
         </button>
-
-        <div className="relative pt-[56.25%]">
+           {trailer && <div className="relative pt-[56.25%]">
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${trailer}`}
             width="100%"
@@ -67,9 +66,8 @@ export default function BasicModal() {
             playing
             muted={muted}
           />
-         
-        </div>
-        <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8">
+        </div>}
+        <div className={`flex  space-x-16 rounded-b-md bg-[#181818] px-10 py-8 ${!trailer && '!pt-[25%]'}`}>
           <div className="space-y-6 text-lg">
             <div className="flex items-center space-x-2 text-sm">
               <p className="font-semibold text-green-400">

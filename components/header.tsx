@@ -49,7 +49,7 @@ const Header = () => {
           <img
             src="https://rb.gy/g1pwyx"
             alt="icon"
-            className="cursor-pointer rounded w-6 h-6"
+            className="cursor-pointer rounded w-5 h-5"
           />
         </Link>
       </div>

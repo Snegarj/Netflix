@@ -30,10 +30,10 @@ const SearchMovies: React.FC = () => {
 
   return (
     <div>
-      <div className="container-2">
-        <span className="icon"><SearchIcon className='hidden md:inline w-5 h-5 cursor-pointer' onClick={searchMovies} /></span>
-        <input type="search" id="search" placeholder="Search..." value={query}
+      <div className="searchMovieBox hidden md:inline-block ">
+               <input type="search" id="search" placeholder="Search Movies..." value={query}
           onChange={handleChange} />
+           <span className="icon"><SearchIcon className=' w-5 h-5 cursor-pointer' onClick={searchMovies} /></span>
       </div>
 
 

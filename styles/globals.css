@@ -3,52 +3,47 @@
 @tailwind utilities;
 
 /* style for html,head,body  */
-@layer base
-{
-body{
-  @apply bg-[#141414] text-white scrollbar scrollbar-default !scrollbar-thumb-gray-700 hover:!scrollbar-thumb-gray-600  ;
-}
-header{
-  @apply fixed top-0 z-50 flex w-full items-center justify-between  py-4 transition-all px-4 lg:px-10 lg:py-6; 
-}
+@layer base {
+  body {
+    @apply bg-[#141414] text-white scrollbar scrollbar-default !scrollbar-thumb-gray-700 hover:!scrollbar-thumb-gray-600;
+  }
+
+  header {
+    @apply fixed top-0 z-50 flex w-full items-center justify-between py-4 transition-all px-4 lg:px-10 lg:py-6;
+  }
 }
 
-@layer  components{
-  .headerLink{
+@layer components {
+  .headerLink {
     @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3];
   }
+
   .bannerButton {
     @apply flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-xl;
   }
 }
 
 /* Search icon  */
+.searchMovieBox {
 
- 
-
-.container-2{ 
-   width: 20px;
-    vertical-align: middle;
+  vertical-align: middle;
   white-space: nowrap;
   position: relative;
   height: 27px;
+  min-width: 20px;
 }
 
-.container-2 input#search{
-display: none;
-  
+.searchMovieBox input#search {
+  display: none;
   height: 27px;
   background: transparent;
   border: none;
   font-size: 0px;
   float: left;
   color: transparent;
-  
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-
- 
   -webkit-transition: width .55s ease;
   -moz-transition: width .55s ease;
   -ms-transition: width .55s ease;
@@ -56,51 +51,31 @@ display: none;
   transition: width .55s ease;
 }
 
-.container-2 input#search::-webkit-input-placeholder {
-   /* color: #65737e; */
-}
- 
-.container-2 input#search:-moz-placeholder { /* Firefox 18- */
-   /* color: #65737e;   */
-}
- 
-.container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
-   /* color: #65737e;   */
-}
- 
-.container-2 input#search:-ms-input-placeholder {  
-   /* color: #65737e;   */
-}
-
-.container-2 .icon{
+.searchMovieBox .icon {
   position: absolute;
-left: 2px;
+  left: 3px;
   z-index: 1;
+  top: 3px !important;
 
 }
 
-.container-2 input#search:focus, .container-2 input#search:active{
-  outline:none;
-   width: 300px;
+.searchMovieBox:hover input#search,
+.searchMovieBox input#search:focus,
+.searchMovieBox input#search:active {
+  width: 300px !important;
+  display: inline-block;
+  padding-left: 27px;
+  background-color: white;
+  color: #65737e;
+  padding-right: 5px;
+  font-size: 10pt;
+  outline: none;
 }
- 
-.container-2:hover input#search{
-width: 100%;
-display: inline-block;
-padding-left: 27px;
-background-color: white;
-color: #65737e;
-padding-right: 5px;
-font-size: 10pt;
+
+.searchMovieBox:hover .icon ,
+.searchMovieBox input#search:focus + .icon,
+.searchMovieBox input#search:active + .icon
+{
+  color: black !important;
 
 }
-.container-2:hover {
-  width: 300px;
-}
-.container-2:hover .icon{
-  color: black;
-}
- 
-/* .container-2:hover .icon{
-  color: #93a2ad;
-} */
